@@ -1,0 +1,21 @@
+@charset "UTF-8";
+@import url(./vendor/fonts/inter.css);
+@import url(./vendor/normalize.scss);
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  background-color: #202020;
+  font-family: Inter, serif;
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeLegibility;
+  line-height: 1.5;
+}
+
+/*# sourceMappingURL=index.css.map */
