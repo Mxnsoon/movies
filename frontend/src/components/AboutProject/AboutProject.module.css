@@ -16,7 +16,73 @@
   background-color: #DADADA;
   border: none;
   height: 1px;
-  margin: 0;
+  margin: 0 0 70px 0;
+}
+.aboutProject__container {
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.aboutProject__textContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  color: #ffffff;
+}
+.aboutProject__textTitle {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 24px;
+  letter-spacing: -0.04em;
+}
+.aboutProject__textDescription {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 20px;
+}
+.aboutProject__progress {
+  display: flex;
+  flex-direction: row;
+  margin-top: 110px;
+  width: 100%;
+  padding-bottom: 110px;
+}
+.aboutProject__backendContainer {
+  width: 20%;
+  text-align: center;
+}
+.aboutProject__backend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background-color: #3DDC84;
+  color: #000000;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+.aboutProject__frontendContainer {
+  width: 80%;
+  text-align: center;
+}
+.aboutProject__frontend {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  background-color: #303030;
+  color: #ffffff;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+}
+.aboutProject__text {
+  color: #8b8b8b;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  margin-top: 14px;
 }
 
 /*# sourceMappingURL=AboutProject.module.css.map */

@@ -3,6 +3,9 @@ import s from './App.module.scss'
 import Header from "../Header/Header";
 import MainNavigation from "../MainNavigation/MainNavigation";
 import AboutProject from "../AboutProject/AboutProject";
+import Techs from "../Techs/Techs";
+import AboutMe from "../AboutMe/AboutMe";
+import Footer from "../Footer/Footer";
 
 const App = () => {
     return (
@@ -10,6 +13,9 @@ const App = () => {
             <Header/>
             <MainNavigation/>
             <AboutProject />
+            <Techs />
+            <AboutMe />
+            <Footer />
         </div>
     );
 }

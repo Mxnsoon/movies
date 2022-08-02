@@ -15,6 +15,73 @@
     background-color: #DADADA;
     border: none;
     height: 1px;
-    margin: 0;
+    margin: 0 0 70px 0;
+  }
+  &__container {
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+  }
+  &__textContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 26px;
+    color: #ffffff;
+  }
+  &__textTitle {
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 24px;
+    letter-spacing: -0.04em;
+  }
+  &__textDescription {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 20px;
+  }
+  &__progress {
+    display: flex;
+    flex-direction: row;
+    margin-top: 110px;
+    width: 100%;
+    padding-bottom: 110px;
+  }
+  &__backendContainer {
+    width: 20%;
+    text-align: center;
+
+  }
+  &__backend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    background-color: #3DDC84;
+    color: #000000;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__frontendContainer {
+    width: 80%;
+    text-align: center;
+  }
+  &__frontend {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 36px;
+    background-color: #303030;
+    color: #ffffff;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+  }
+  &__text {
+    color: #8b8b8b;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 17px;
+    margin-top: 14px;
   }
 }

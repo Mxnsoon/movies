@@ -1,3 +1,6 @@
+.header {
+  margin-bottom: 20px;
+}
 .header__wrapper {
   margin-top: 19px;
   display: flex;
