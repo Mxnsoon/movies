@@ -1,0 +1,19 @@
+.register {
+  max-width: 396px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-top: 70px;
+  &__title {
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 24px;
+    line-height: 29px;
+    color: #ffffff;
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+  &__inputContainer {
+    display: flex;
+    flex-direction: column;
+  }
+}

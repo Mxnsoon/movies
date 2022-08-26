@@ -1,21 +1,22 @@
 import React from 'react';
+import {Route, Routes} from 'react-router-dom';
 import s from './App.module.scss'
-import Header from "../Header/Header";
-import MainNavigation from "../MainNavigation/MainNavigation";
-import AboutProject from "../AboutProject/AboutProject";
-import Techs from "../Techs/Techs";
-import AboutMe from "../AboutMe/AboutMe";
-import Footer from "../Footer/Footer";
+import Main from "../../layout/Main";
+import Movies from "../../layout/Movies";
+import SavedMovies from "../../layout/SavedMovies";
+import ProfilePage from "../../layout/ProfilePage";
+import RegisterPage from "../../layout/RegisterPage";
 
-const App = () => {
+const App: React.FC = () => {
     return (
         <div className={s.app}>
-            <Header/>
-            <MainNavigation/>
-            <AboutProject />
-            <Techs />
-            <AboutMe />
-            <Footer />
+            <Routes>
+                <Route path="/" element={<Main/>}/>
+                <Route path="movies" element={<Movies/>}/>
+                <Route path="saved-movies" element={<SavedMovies />} />
+                <Route path="profile" element={<ProfilePage />} />
+                <Route path="signup" element={<RegisterPage />} />
+            </Routes>
         </div>
     );
 }

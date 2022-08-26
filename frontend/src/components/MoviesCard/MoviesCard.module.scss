@@ -1,0 +1,31 @@
+.moviesCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 14px;
+    justify-content: space-between;
+  }
+  &__infoContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+  }
+  &__title {
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 15px;
+    line-height: 18px;
+    color: #ffffff;
+  }
+  &__time {
+    font-family: Inter, serif;
+    font-weight: 400;
+    font-size: 11px;
+    line-height: 13px;
+    color: #8b8b8b;
+  }
+}

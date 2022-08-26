@@ -1,0 +1,33 @@
+.moviesCard {
+  display: flex;
+  flex-direction: column;
+  background-color: #222222;
+}
+.moviesCard__header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 14px;
+  justify-content: space-between;
+}
+.moviesCard__infoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 9px;
+}
+.moviesCard__title {
+  font-family: Inter, serif;
+  font-weight: 500;
+  font-size: 15px;
+  line-height: 18px;
+  color: #ffffff;
+}
+.moviesCard__time {
+  font-family: Inter, serif;
+  font-weight: 400;
+  font-size: 11px;
+  line-height: 13px;
+  color: #8b8b8b;
+}
+
+/*# sourceMappingURL=MoviesCard.module.css.map */
