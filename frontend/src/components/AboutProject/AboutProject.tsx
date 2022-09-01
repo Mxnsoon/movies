@@ -14,8 +14,8 @@ const AboutProject = () => {
                     </div>
                 </div>
                 <div className={s.aboutProject__textContainer}>
-                    <div>На выполнение диплома ушло 5 недель</div>
-                    <div>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно
+                    <div className={s.aboutProject__textTitle}>На выполнение диплома ушло 5 недель</div>
+                    <div className={s.aboutProject__textDescription}>У каждого этапа был мягкий и жёсткий дедлайн, которые нужно было соблюдать, чтобы успешно
                         защититься.
                     </div>
                 </div>

@@ -1,0 +1,76 @@
+.mobileMenu {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  background-color: rgba(0, 0, 0, 0.3);
+  visibility: hidden;
+}
+.mobileMenu_visible {
+  visibility: visible;
+}
+.mobileMenu__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+  width: 67.71%;
+  padding-top: 15.53%;
+  padding-bottom: 8.79%;
+  justify-content: space-between;
+  background-color: #202020;
+  position: fixed;
+  right: 0;
+  top: 0;
+}
+.mobileMenu__close {
+  position: absolute;
+  right: 22.44px;
+  top: 22.44px;
+  cursor: pointer;
+  width: 22px;
+  height: 22px;
+}
+.mobileMenu__close:hover {
+  opacity: 0.7;
+}
+.mobileMenu__list {
+  display: flex;
+  flex-direction: column;
+  list-style: none;
+  align-items: center;
+  gap: 28px;
+}
+.mobileMenu__listElement {
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 18px;
+  line-height: 22px;
+  text-decoration: none;
+}
+.mobileMenu__listElement:hover {
+  opacity: 0.8;
+}
+.mobileMenu__profileLink {
+  padding: 8px 20px;
+  background-color: #313131;
+  border-radius: 20px;
+  color: #ffffff;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  text-decoration: none;
+}
+.mobileMenu__profileLink:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 700px) {
+  .mobileMenu__content {
+    width: 100%;
+    padding-top: 18.46%;
+  }
+}
+
+/*# sourceMappingURL=MobileMenu.module.css.map */

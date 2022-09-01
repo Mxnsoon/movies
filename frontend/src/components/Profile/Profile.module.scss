@@ -60,3 +60,38 @@
     }
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .profile {
+    padding-bottom: 269px;
+    &__title {
+      margin-top: 236px;
+      margin-bottom: 96px;
+    }
+    &__infoBlock {
+      margin-bottom: 210px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .profile {
+    padding-bottom: 40px;
+    &__title {
+      margin-top: 70px;
+      margin-bottom: 80px;
+    }
+    &__infoBlock {
+      width: 260px;
+      margin-bottom: 380px;
+    }
+    &__edit {
+      font-size: 12px;
+      line-height: 15px;
+    }
+    &__logout {
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}

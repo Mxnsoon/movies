@@ -4,12 +4,17 @@ import MoviesCardList from "../components/MoviesCardList/MoviesCardList";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
-const SavedMovies = () => {
+type TSavedMovies = {
+    windowWidth: number
+    openMobilePopup: () => void
+}
+
+const SavedMovies: React.FC<TSavedMovies> = ({windowWidth, openMobilePopup}) => {
     return (
         <>
-            <Header/>
-            <SearchForm />
-            <MoviesCardList />
+            <Header windowWidth={windowWidth} openMobilePopup={openMobilePopup}/>
+            <SearchForm windowWidth={windowWidth} />
+            <MoviesCardList windowWidth={windowWidth} />
             <Footer/>
         </>
     );

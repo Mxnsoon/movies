@@ -19,6 +19,12 @@
       opacity: 0.5;
     }
   }
+  &__burger {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
   &__buttonsContainer {
     display: flex;
     flex-direction: row;
@@ -32,6 +38,7 @@
     padding: 8px 20px;
     border-radius: 3px;
     cursor: pointer;
+    text-decoration: none;
     background-color: #3DDC84;
     color: #000000;
     &:hover {
@@ -50,6 +57,14 @@
     color: #ffffff;
     &:hover {
       opacity: 0.5;
+    }
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .header {
+    &__wrapper {
+      max-width: 92.19%;
     }
   }
 }

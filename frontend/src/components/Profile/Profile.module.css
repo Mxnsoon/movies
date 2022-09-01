@@ -61,4 +61,38 @@
   opacity: 0.8;
 }
 
+@media screen and (max-width: 1200px) {
+  .profile {
+    padding-bottom: 269px;
+  }
+  .profile__title {
+    margin-top: 236px;
+    margin-bottom: 96px;
+  }
+  .profile__infoBlock {
+    margin-bottom: 210px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .profile {
+    padding-bottom: 40px;
+  }
+  .profile__title {
+    margin-top: 70px;
+    margin-bottom: 80px;
+  }
+  .profile__infoBlock {
+    width: 260px;
+    margin-bottom: 380px;
+  }
+  .profile__edit {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .profile__logout {
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+
 /*# sourceMappingURL=Profile.module.css.map */

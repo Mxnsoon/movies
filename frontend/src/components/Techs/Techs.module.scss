@@ -64,3 +64,66 @@
     letter-spacing: -0.04em;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .techs {
+    padding-top: 90px;
+    padding-bottom: 90px;
+    &__wrapper {
+      max-width: 86.98%;
+    }
+    &__line {
+      margin-bottom: 80px;
+    }
+    &__containerTitle {
+      margin-bottom: 22px;
+    }
+    &__description {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    &__techsContainer {
+      margin-top: 83px;
+    }
+    &__techItem {
+      width: 84px;
+      height: 57px;
+      font-size: 12px;
+      line-height: 15px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .techs {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    &__wrapper {
+      width: 91.25%;
+    }
+    &__title {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 28px;
+    }
+    &__line {
+      margin-bottom: 60px;
+    }
+    &__containerTitle {
+      font-size: 30px;
+      line-height: 36px;
+      margin-bottom: 24px;
+    }
+    &__description {
+      font-size: 11px;
+      line-height: 16px;
+      max-width: 292px;
+    }
+    &__techsContainer {
+      margin-top: 50px;
+      display: grid;
+      grid-template-columns: repeat(2, 84px);
+      justify-content: center;
+    }
+  }
+}

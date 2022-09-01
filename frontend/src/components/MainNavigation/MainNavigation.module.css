@@ -29,14 +29,53 @@
 }
 .mainNavigation__link {
   display: block;
-  padding: 10px 13.5px;
+  text-align: center;
+  padding-top: 10px;
+  padding-bottom: 10px;
   background-color: #303030;
+  width: 96px;
   border-radius: 10px;
   text-decoration: none;
   color: #ffffff;
 }
 .mainNavigation__link:hover {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 1200px) {
+  .mainNavigation {
+    width: 94.79%;
+  }
+  .mainNavigation__title {
+    max-width: 680px;
+    font-size: 40px;
+    line-height: 52px;
+    letter-spacing: -0.04em;
+    padding-top: 350px;
+    margin-bottom: 314px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .mainNavigation {
+    width: 91.25%;
+  }
+  .mainNavigation__title {
+    padding-top: 220px;
+    font-size: 29px;
+    line-height: 37px;
+    margin-bottom: 212px;
+  }
+  .mainNavigation__container {
+    padding-bottom: 17px;
+    gap: 6px;
+    font-size: 10px;
+    line-height: 16px;
+  }
+  .mainNavigation__link {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    width: 82px;
+  }
 }
 
 /*# sourceMappingURL=MainNavigation.module.css.map */

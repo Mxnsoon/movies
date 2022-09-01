@@ -7,7 +7,7 @@ const Footer = () => {
             <p className={s.footer__text}>Учебный проект Яндекс.Практикум х BeatFilm.</p>
             <hr className={s.footer__line} />
             <div className={s.footer__container}>
-                <p className={s.footer__link}>© 2022</p>
+                <p className={`${s.footer__link} ${s.footer__year}`}>© 2022</p>
                 <div className={s.footer__linksContainer}>
                     <a className={s.footer__link} href="#">Яндекс.Практикум</a>
                     <a className={s.footer__link} href="#">Github</a>

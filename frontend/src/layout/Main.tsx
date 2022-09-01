@@ -6,10 +6,16 @@ import AboutMe from "../components/AboutMe/AboutMe";
 import Footer from "../components/Footer/Footer";
 import Header from "../components/Header/Header";
 
-const Main: React.FC = () => {
+type TMovies = {
+    windowWidth: number
+    openMobilePopup: () => void
+}
+
+
+const Main: React.FC<TMovies> = ({windowWidth, openMobilePopup}) => {
     return (
         <>
-            <Header/>
+            <Header openMobilePopup={openMobilePopup} windowWidth={windowWidth}  />
             <MainNavigation/>
             <AboutProject/>
             <Techs/>

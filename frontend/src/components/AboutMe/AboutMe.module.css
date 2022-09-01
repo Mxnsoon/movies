@@ -42,6 +42,10 @@
   font-size: 14px;
   line-height: 22px;
 }
+.aboutMe__photo {
+  width: 270px;
+  height: 327px;
+}
 .aboutMe__linksContainer {
   margin-top: 99px;
   display: flex;
@@ -83,6 +87,95 @@
   height: 1px;
   background-color: #424242;
   border: none;
+}
+
+@media screen and (max-width: 1200px) {
+  .aboutMe {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .aboutMe__aboutMeContainer {
+    gap: 49px;
+    margin-bottom: 90px;
+  }
+  .aboutMe__name {
+    font-size: 40px;
+    line-height: 40px;
+    margin-bottom: 16px;
+  }
+  .aboutMe__job {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .aboutMe__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .aboutMe__linksContainer {
+    margin-top: 87px;
+  }
+  .aboutMe__photo {
+    width: 255px;
+    height: 307px;
+  }
+  .aboutMe__myAppsLine {
+    background-color: #E6E6E6;
+  }
+  .aboutMe__appText {
+    font-size: 28px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .aboutMe {
+    padding-top: 70px;
+    padding-bottom: 70px;
+    max-width: 91.25%;
+  }
+  .aboutMe__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 28px;
+  }
+  .aboutMe__line {
+    margin-bottom: 60px;
+  }
+  .aboutMe__aboutMeContainer {
+    flex-direction: column-reverse;
+    gap: 40px;
+    margin-bottom: 70px;
+  }
+  .aboutMe__photo {
+    width: 292px;
+    height: 352px;
+    align-self: center;
+  }
+  .aboutMe__name {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 20px;
+  }
+  .aboutMe__job {
+    font-size: 11px;
+    line-height: 16px;
+    margin-bottom: 20px;
+  }
+  .aboutMe__description {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .aboutMe__linksContainer {
+    margin-top: 40px;
+    gap: 26px;
+  }
+  .aboutMe__portfolio {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 40px;
+  }
+  .aboutMe__appText {
+    font-size: 18px;
+    line-height: 28px;
+  }
 }
 
 /*# sourceMappingURL=AboutMe.module.css.map */

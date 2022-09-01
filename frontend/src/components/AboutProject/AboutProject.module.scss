@@ -85,3 +85,78 @@
     margin-top: 14px;
   }
 }
+
+@media screen and (max-width: 1200px) {
+  .aboutProject {
+    max-width: 86.98%;
+    padding-top: 90px;
+    &__container {
+      gap: 30px;
+    }
+    &__textContainer {
+      gap: 22px;
+    }
+    &__textDescription {
+      font-size: 12px;
+      line-height: 18px;
+    }
+    &__progress {
+      margin-top: 93px;
+      padding-bottom: 90px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .aboutProject {
+    padding-top: 70px;
+    max-width: 88.75%;
+    &__title {
+      font-size: 18px;
+      line-height: 22px;
+      margin-bottom: 28px;
+    }
+    &__line {
+      margin-bottom: 60px;
+    }
+    &__container {
+      flex-direction: column;
+      gap: 56px;
+    }
+    &__textContainer {
+      gap: 16px;
+    }
+    &__textTitle {
+      font-size: 18px;
+      line-height: 22px;
+    }
+    &__textDescription {
+      font-size: 11px;
+      line-height: 16px;
+    }
+    &__progress {
+      margin-top: 60px;
+      padding-bottom: 70px;
+    }
+    &__backendContainer {
+      width: 35.21%;
+    }
+    &__backend {
+      height: 35px;
+      font-size: 11px;
+      line-height: 13px;
+    }
+    &__text {
+      font-size: 11px;
+      line-height: 13px;
+      margin-top: 10px;
+    }
+    &__frontendContainer {
+      width: 64.79%;
+    }
+    &__frontend {
+      font-size: 11px;
+      line-height: 13px;
+    }
+  }
+}

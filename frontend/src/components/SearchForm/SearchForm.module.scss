@@ -16,7 +16,7 @@
     padding: 16px 20px;
     background-color: #2f2f2f;
     border-radius: 8px;
-    width: 1086px;
+    min-width: 1086px;
     border: none;
     font-family: Inter, serif;
     font-weight: 400;
@@ -72,6 +72,13 @@
     height: 16px;
     border-radius: 50%;
   }
+  &__error {
+    color: rgba(238, 52, 101, 1);
+    font-size: 10px;
+    line-height: 12px;
+    text-align: center;
+    margin-top: 6px;
+  }
   &__toggleText {
     font-family: Inter, serif;
     font-weight: 400;
@@ -87,5 +94,27 @@
     width: 89.06%;
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media screen and (max-width: 1200px) {
+  .searchForm {
+    &__input {
+      min-width: 654px;
+    }
+  }
+}
+
+@media screen and (max-width: 760px) {
+  .searchForm {
+    &__searchContainer {
+      max-width: 91.25%;
+    }
+    &__line {
+      width: 91.25%;
+    }
+    &__input {
+      min-width: 238px;
+    }
   }
 }

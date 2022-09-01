@@ -35,5 +35,41 @@
   color: #ffffff;
   text-decoration: none;
 }
+.footer__link:hover {
+  opacity: 0.8;
+}
+
+@media screen and (max-width: 1200px) {
+  .footer {
+    max-width: 92.19%;
+  }
+}
+@media screen and (max-width: 760px) {
+  .footer {
+    max-width: 93.75%;
+    padding-bottom: 10px;
+  }
+  .footer__text {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .footer__container {
+    flex-direction: column-reverse;
+    margin-top: 30px;
+    gap: 30px;
+    align-items: center;
+  }
+  .footer__linksContainer {
+    flex-direction: column;
+    align-items: center;
+  }
+  .footer__link {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .footer__year {
+    color: #8b8b8b;
+  }
+}
 
 /*# sourceMappingURL=Footer.module.css.map */

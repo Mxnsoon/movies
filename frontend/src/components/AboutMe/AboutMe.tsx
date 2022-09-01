@@ -6,7 +6,7 @@ import arrow from '../../images/arrow.png';
 const AboutMe = () => {
     return (
         <div className={s.aboutMe}>
-            <h2 className={s.aboutMe__title}>О проекте</h2>
+            <h2 className={s.aboutMe__title}>Студент</h2>
             <hr className={s.aboutMe__line}/>
             <div className={s.aboutMe__aboutMeContainer}>
                 <div>
@@ -22,7 +22,7 @@ const AboutMe = () => {
                         <a className={s.aboutMe__link} href="#">Github</a>
                     </div>
                 </div>
-                <img alt="фото студента" src={student}/>
+                <img className={s.aboutMe__photo} alt="фото студента" src={student}/>
             </div>
             <p className={s.aboutMe__portfolio}>Портфолио</p>
             <div className={s.aboutMe__myAppsContainer}>

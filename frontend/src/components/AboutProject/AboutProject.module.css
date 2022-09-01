@@ -85,4 +85,78 @@
   margin-top: 14px;
 }
 
+@media screen and (max-width: 1200px) {
+  .aboutProject {
+    max-width: 86.98%;
+    padding-top: 90px;
+  }
+  .aboutProject__container {
+    gap: 30px;
+  }
+  .aboutProject__textContainer {
+    gap: 22px;
+  }
+  .aboutProject__textDescription {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .aboutProject__progress {
+    margin-top: 93px;
+    padding-bottom: 90px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .aboutProject {
+    padding-top: 70px;
+    max-width: 88.75%;
+  }
+  .aboutProject__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 28px;
+  }
+  .aboutProject__line {
+    margin-bottom: 60px;
+  }
+  .aboutProject__container {
+    flex-direction: column;
+    gap: 56px;
+  }
+  .aboutProject__textContainer {
+    gap: 16px;
+  }
+  .aboutProject__textTitle {
+    font-size: 18px;
+    line-height: 22px;
+  }
+  .aboutProject__textDescription {
+    font-size: 11px;
+    line-height: 16px;
+  }
+  .aboutProject__progress {
+    margin-top: 60px;
+    padding-bottom: 70px;
+  }
+  .aboutProject__backendContainer {
+    width: 35.21%;
+  }
+  .aboutProject__backend {
+    height: 35px;
+    font-size: 11px;
+    line-height: 13px;
+  }
+  .aboutProject__text {
+    font-size: 11px;
+    line-height: 13px;
+    margin-top: 10px;
+  }
+  .aboutProject__frontendContainer {
+    width: 64.79%;
+  }
+  .aboutProject__frontend {
+    font-size: 11px;
+    line-height: 13px;
+  }
+}
+
 /*# sourceMappingURL=AboutProject.module.css.map */

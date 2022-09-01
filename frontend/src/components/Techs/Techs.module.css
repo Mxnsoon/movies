@@ -65,4 +65,66 @@
   letter-spacing: -0.04em;
 }
 
+@media screen and (max-width: 1200px) {
+  .techs {
+    padding-top: 90px;
+    padding-bottom: 90px;
+  }
+  .techs__wrapper {
+    max-width: 86.98%;
+  }
+  .techs__line {
+    margin-bottom: 80px;
+  }
+  .techs__containerTitle {
+    margin-bottom: 22px;
+  }
+  .techs__description {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  .techs__techsContainer {
+    margin-top: 83px;
+  }
+  .techs__techItem {
+    width: 84px;
+    height: 57px;
+    font-size: 12px;
+    line-height: 15px;
+  }
+}
+@media screen and (max-width: 760px) {
+  .techs {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+  .techs__wrapper {
+    width: 91.25%;
+  }
+  .techs__title {
+    font-size: 18px;
+    line-height: 22px;
+    margin-bottom: 28px;
+  }
+  .techs__line {
+    margin-bottom: 60px;
+  }
+  .techs__containerTitle {
+    font-size: 30px;
+    line-height: 36px;
+    margin-bottom: 24px;
+  }
+  .techs__description {
+    font-size: 11px;
+    line-height: 16px;
+    max-width: 292px;
+  }
+  .techs__techsContainer {
+    margin-top: 50px;
+    display: grid;
+    grid-template-columns: repeat(2, 84px);
+    justify-content: center;
+  }
+}
+
 /*# sourceMappingURL=Techs.module.css.map */

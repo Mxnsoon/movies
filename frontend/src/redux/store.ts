@@ -1,12 +1,15 @@
-import { configureStore } from '@reduxjs/toolkit';
-import { TypedUseSelectorHook, useDispatch, useSelector } from 'react-redux';
+import {configureStore} from '@reduxjs/toolkit';
+import {TypedUseSelectorHook, useDispatch, useSelector} from 'react-redux';
+import moviesSlice from "./moviesSlice";
+import authSlice from "./authSlice";
 
 export const store = configureStore({
   reducer: {
+    moviesSlice,
+    authSlice
   },
 });
 
-// Use throughout your App instead of plain `useDispatch` and `useSelector`
 export const useAppDispatch = () => useDispatch<AppDispatch>();
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;
 

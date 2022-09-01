@@ -1,0 +1,35 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 246px;
+}
+.notFound__code {
+  font-family: Inter, serif;
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 169px;
+  color: #ffffff;
+}
+.notFound__text {
+  font-family: Inter, serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #ffffff;
+  margin-top: 5px;
+}
+.notFound__link {
+  font-family: Inter, serif;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  color: #4285f4;
+  margin-top: 184px;
+  text-decoration: none;
+}
+.notFound__link:hover {
+  opacity: 0.8;
+}
+
+/*# sourceMappingURL=NotFound.module.css.map */
