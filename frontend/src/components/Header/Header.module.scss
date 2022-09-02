@@ -31,6 +31,36 @@
     align-items: center;
     gap: 30px;
   }
+  &__linksContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 16px;
+  }
+  &__link {
+    font-family: Inter, serif;
+    font-size: 13px;
+    line-height: 18px;
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+  &__profileButton {
+    padding: 8px 20px;
+    border-radius: 20px;
+    font-family: Inter, serif;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+    background-color: rgba(49, 49, 49, 1);
+    color: #ffffff;
+    text-decoration: none;
+    &:hover {
+      opacity: 0.8;
+    }
+
+  }
   &__loginButton {
     font-weight: 500;
     font-size: 12px;

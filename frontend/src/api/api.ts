@@ -14,5 +14,19 @@ export const authApi = {
     },
     signIn(data: any) {
         return axios.post(`${myApi}signin`, data)
+    },
+    getUserInfo(token: string) {
+        return axios.get(`${myApi}user/me`, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
+    },
+    patchUserInfo(token: string, data: any) {
+        return axios.patch(`${myApi}user/me`, data, {
+            headers: {
+                'Authorization': `Bearer ${token}`
+            }
+        })
     }
 }

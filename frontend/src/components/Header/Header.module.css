@@ -30,6 +30,35 @@
   align-items: center;
   gap: 30px;
 }
+.header__linksContainer {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+.header__link {
+  font-family: Inter, serif;
+  font-size: 13px;
+  line-height: 18px;
+  color: #ffffff;
+  text-decoration: none;
+}
+.header__link:hover {
+  opacity: 0.8;
+}
+.header__profileButton {
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-family: Inter, serif;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 16px;
+  background-color: #313131;
+  color: #ffffff;
+  text-decoration: none;
+}
+.header__profileButton:hover {
+  opacity: 0.8;
+}
 .header__loginButton {
   font-weight: 500;
   font-size: 12px;

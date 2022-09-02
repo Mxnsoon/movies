@@ -1,10 +1,12 @@
 import React from 'react';
 import s from "../Register/Register.module.scss";
 import logo from "../../images/logo.png";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
-import {registerSchema} from "../../vendor/validation";
+import {loginSchema} from "../../vendor/validation";
+import {useAppDispatch} from "../../redux/store";
+import {getInfo, signIn} from "../../redux/authSlice";
 
 type Inputs = {
     email: string
@@ -12,10 +14,26 @@ type Inputs = {
 }
 
 const Login: React.FC = () => {
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>({
-        resolver: yupResolver(registerSchema)
+    const dispatch = useAppDispatch();
+    const navigate = useNavigate()
+
+    const submitHandler = async (data: Inputs) => {
+        await dispatch(signIn(data))
+        const token = localStorage.getItem('token')
+        if (token) {
+            dispatch(getInfo(token))
+            navigate('/movies')
+        }
+    }
+
+    const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<Inputs>({
+        resolver: yupResolver(loginSchema),
+        defaultValues: {
+            email: "",
+            password: ""
+        }
     });
-    const onSubmit: SubmitHandler<Inputs> = data => console.log(data);
+    const onSubmit: SubmitHandler<Inputs> = data => submitHandler(data);
 
     return (
         <div className={s.register}>
@@ -24,13 +42,15 @@ const Login: React.FC = () => {
             <form className={s.register__form} onSubmit={handleSubmit(onSubmit)}>
                 <div className={s.register__inputContainer}>
                     <label className={s.register__label} htmlFor="email">E-mail</label>
-                    <input type="text" className={s.register__input} defaultValue="" {...register("email")} />
+                    <input type="text" className={s.register__input} {...register("email")} />
+                    {errors.email && <p className={s.register__error}>{errors.email.message}</p>}
                 </div>
                 <div className={s.register__inputContainer}>
                     <label className={s.register__label} htmlFor="password">Пароль</label>
-                    <input type="password" className={s.register__input} defaultValue="" {...register("password")} />
+                    <input type="password" className={s.register__input} {...register("password")} />
+                    {errors.password && <p className={s.register__error}>{errors.password.message}</p>}
                 </div>
-                <button type="submit" className={s.register__button}>Войти</button>
+                <button disabled={isSubmitting} type="submit" className={s.register__button}>Войти</button>
             </form>
             <p className={s.register__text}>Еще не зарегистрированы? <Link className={s.register__link} to="/signup">Регистрация</Link></p>
         </div>

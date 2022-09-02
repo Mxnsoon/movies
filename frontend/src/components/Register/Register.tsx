@@ -21,7 +21,7 @@ const Register = () => {
         dispatch(signUp(data))
     }
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm<Inputs>({
+    const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<Inputs>({
         resolver: yupResolver(registerSchema),
         defaultValues: {
             name: "",
@@ -39,16 +39,19 @@ const Register = () => {
                 <div className={s.register__inputContainer}>
                     <label className={s.register__label} htmlFor="name">Имя</label>
                     <input type="text" className={s.register__input} {...register("name")} />
+                    {errors.name && <p className={s.register__error}>{errors.name.message}</p>}
                 </div>
                 <div className={s.register__inputContainer}>
                     <label className={s.register__label} htmlFor="email">E-mail</label>
                     <input type="text" className={s.register__input} {...register("email")} />
+                    {errors.email && <p className={s.register__error}>{errors.email.message}</p>}
                 </div>
                 <div className={s.register__inputContainer}>
                     <label className={s.register__label} htmlFor="password">Пароль</label>
                     <input type="password" className={s.register__input} {...register("password")} />
+                    {errors.password && <p className={s.register__error}>{errors.password.message}</p>}
                 </div>
-                <button type="submit" className={s.register__button}>Зарегистрироваться</button>
+                <button type="submit" disabled={isSubmitting} className={s.register__button}>Зарегистрироваться</button>
             </form>
             <p className={s.register__text}>Уже зарегистрированы? <Link className={s.register__link} to="/signin">Войти</Link></p>
         </div>

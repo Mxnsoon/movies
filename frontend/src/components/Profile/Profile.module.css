@@ -35,6 +35,22 @@
   height: 1px;
   background-color: #424242;
 }
+.profile__save {
+  width: 396px;
+  height: 45px;
+  background: #4285f4;
+  border-radius: 3px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+  margin-top: 220px;
+}
+.profile__save:hover {
+  opacity: 0.8;
+}
 .profile__edit {
   font-family: Inter, serif;
   font-weight: 400;
@@ -47,6 +63,17 @@
 }
 .profile__edit:hover {
   opacity: 0.8;
+}
+.profile__input {
+  background-color: inherit;
+  font-family: Inter, serif;
+  font-weight: 500;
+  font-size: 11px;
+  line-height: 13px;
+  color: #ffffff;
+  outline: none;
+  border: none;
+  text-align: end;
 }
 .profile__logout {
   font-family: Inter, serif;
@@ -72,6 +99,9 @@
   .profile__infoBlock {
     margin-bottom: 210px;
   }
+  .profile__save {
+    margin-top: 210px;
+  }
 }
 @media screen and (max-width: 760px) {
   .profile {
@@ -85,11 +115,19 @@
     width: 260px;
     margin-bottom: 380px;
   }
+  .profile__save {
+    margin-top: 380px;
+  }
   .profile__edit {
     font-size: 12px;
     line-height: 15px;
   }
   .profile__logout {
+    font-size: 12px;
+    line-height: 15px;
+  }
+  .profile__save {
+    width: 260px;
     font-size: 12px;
     line-height: 15px;
   }
