@@ -64,14 +64,21 @@ const getUser = (req, res, next) => {
 const patchUser = (req, res, next) => {
     const {email, name} = req.body;
     const userId = req.user.id
-    User.findByPk(userId)
-        .then((user) => {
-            if (!user) {
-                throw new NotFoundError('Пользователь не найден')
+
+    User.findOne({where: {email}})
+        .then((data) => {
+            if (data) {
+                throw new ConflictError('Пользователь с таким email уже существует');
             }
-            user.update({email, name})
-                .then((data) => {
-                    return res.status(200).send({name: data.name, email: data.email})
+            User.findByPk(userId)
+                .then((user) => {
+                    if (!user) {
+                        throw new NotFoundError('Пользователь не найден')
+                    }
+                    user.update({email, name})
+                        .then((data) => {
+                            return res.status(200).send({name: data.name, email: data.email})
+                        })
                 })
         })
         .catch((err) => {

@@ -14,7 +14,7 @@ const Movie = sequelize.define('movie', {
     director: {type: DataTypes.STRING},
     duration: {type: DataTypes.INTEGER},
     year: {type: DataTypes.STRING},
-    description: {type: DataTypes.STRING},
+    description: {type: DataTypes.STRING(50000)},
     image: {type: DataTypes.STRING},
     trailerLink: {type: DataTypes.STRING},
     thumbnail: {type: DataTypes.STRING},

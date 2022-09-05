@@ -23,6 +23,12 @@
     line-height: 18px;
     color: #ffffff;
   }
+  &__like {
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
+  }
   &__time {
     font-family: Inter, serif;
     font-weight: 400;

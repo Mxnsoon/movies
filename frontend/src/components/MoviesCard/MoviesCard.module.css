@@ -24,6 +24,12 @@
   line-height: 18px;
   color: #ffffff;
 }
+.moviesCard__like {
+  cursor: pointer;
+}
+.moviesCard__like:hover {
+  opacity: 0.8;
+}
 .moviesCard__time {
   font-family: Inter, serif;
   font-weight: 400;
