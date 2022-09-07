@@ -41,8 +41,8 @@ const addMovie = (req, res, next) => {
 }
 
 const deleteMovie = (req, res, next) => {
-    const {id} = req.params
-    Movie.findOne({where: {id}})
+    const {movieId} = req.params
+    Movie.findOne({where: {movieId}})
         .catch(() => {
             throw new NotFoundError('Нет фильма с таким id')
         })
@@ -53,7 +53,7 @@ const deleteMovie = (req, res, next) => {
             if (+req.user.id === +movie.userId) {
                 movie.destroy()
                     .then(() => {
-                        res.status(201).send({message: "Фильм успешно удален"})
+                        res.status(201).send({message: "Фильм успешно удален", movieId})
                     })
                     .catch(next)
             } else {

@@ -18,7 +18,7 @@ const Movie = sequelize.define('movie', {
     image: {type: DataTypes.STRING},
     trailerLink: {type: DataTypes.STRING},
     thumbnail: {type: DataTypes.STRING},
-    movieId: {type: DataTypes.INTEGER},
+    movieId: {type: DataTypes.INTEGER, unique: true},
     nameRU: {type: DataTypes.STRING},
     nameEN: {type: DataTypes.STRING}
 })

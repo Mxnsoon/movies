@@ -5,8 +5,14 @@ import arrow from '../../images/buttonArrow.svg';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup/dist/yup";
 import {searchMovieSchema} from "../../vendor/validation";
-import {useAppDispatch} from "../../redux/store";
-import {getMovies, searchMovies, setMoviesToShow} from "../../redux/moviesSlice";
+import {useAppDispatch, useAppSelector} from "../../redux/store";
+import {
+    getMovies,
+    searchMovies,
+    setMoviesToShow,
+    turnShortMoviesFilterOff,
+    turnShortMoviesFilterOn
+} from "../../redux/moviesSlice";
 
 type Inputs = {
     movie: ""
@@ -19,7 +25,9 @@ type TSearchForm = {
 
 const SearchForm: React.FC<TSearchForm> = ({windowWidth}) => {
     const dispatch = useAppDispatch()
+    const movies = useAppSelector((state) => state.moviesSlice.movies)
     const [initialMoviesCount, setInitialMoviesCount] = useState<number>(0)
+    const shortMoviesFilterOn = useAppSelector((state) => state.moviesSlice.shortMoviesFilter)
 
     useEffect(() => {
         if (windowWidth > 1200) {
@@ -32,12 +40,32 @@ const SearchForm: React.FC<TSearchForm> = ({windowWidth}) => {
     }, [windowWidth])
 
     const submitHandler = async (data: string) => {
-        await dispatch(getMovies())
-        dispatch(searchMovies(data))
+        if (movies.length === 0) {
+            await dispatch(getMovies())
+            dispatch(searchMovies(data))
+            dispatch(setMoviesToShow(initialMoviesCount))
+        } else {
+            dispatch(searchMovies(data))
+            dispatch(setMoviesToShow(initialMoviesCount))
+        }
+    }
+
+    const turnOnFilterHandler = () => {
+        dispatch(turnShortMoviesFilterOn())
         dispatch(setMoviesToShow(initialMoviesCount))
     }
 
-    const {register, handleSubmit, watch, formState: {errors}} = useForm<Inputs>({
+    const turnOffFilterHandler = (data: string) => {
+        dispatch(turnShortMoviesFilterOff(data))
+        dispatch(setMoviesToShow(initialMoviesCount))
+    }
+
+    const toggleClickHandler = () => {
+        const values = getValues()
+        shortMoviesFilterOn ? turnOffFilterHandler(values.movie) : turnOnFilterHandler()
+    }
+
+    const {register, handleSubmit, watch, getValues, formState: {errors}} = useForm<Inputs>({
         resolver: yupResolver(searchMovieSchema),
         defaultValues: {
             movie: ""
@@ -58,13 +86,13 @@ const SearchForm: React.FC<TSearchForm> = ({windowWidth}) => {
                 </button>
             </form>
             <div className={s.searchForm__toggleContainer}>
-                <div className={s.searchForm__toggle}>
-                    <div className={s.searchForm__toggleCircle}/>
+                <div onClick={toggleClickHandler}
+                     className={shortMoviesFilterOn ? s.searchForm__toggle : s.searchForm__toggleOff}>
+                    <div className={shortMoviesFilterOn ? s.searchForm__toggleCircle : s.searchForm__toggleCircleOff}/>
                 </div>
                 <p className={s.searchForm__toggleText}>Короткометражки</p>
             </div>
             <hr className={s.searchForm__line}/>
-
         </div>
     );
 };

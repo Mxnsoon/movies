@@ -87,6 +87,7 @@ type TInitialState = {
     moviesToShow: Movie[]
     status: string,
     savedMovies: SavedMovie[]
+    shortMoviesFilter: boolean
 }
 
 const initialState: TInitialState = {
@@ -94,7 +95,8 @@ const initialState: TInitialState = {
     searchedMovies: [],
     moviesToShow: [],
     status: '',
-    savedMovies: []
+    savedMovies: [],
+    shortMoviesFilter: false
 }
 
 export const getMovies = createAsyncThunk('movies/getMovies', async () => {
@@ -103,34 +105,57 @@ export const getMovies = createAsyncThunk('movies/getMovies', async () => {
 })
 
 export const saveMovie = createAsyncThunk<any, any>('movies/saveMovie', async (data) => {
-    const {token, movie} = data
-    const response = await moviesApi.saveMovie(token, movie)
-    return response.data
+    const token = localStorage.getItem('token')
+    if (token) {
+        const response = await moviesApi.saveMovie(token, data)
+        return response.data
+    }
 })
 
-export const getSavedMovies = createAsyncThunk<any, any>('movies/getSavedMovies', async (data) => {
-    const response = await moviesApi.getSavedMovies(data)
-    return response.data
+export const getSavedMovies = createAsyncThunk('movies/getSavedMovies', async () => {
+    const token = localStorage.getItem('token')
+    if (token) {
+        const response = await moviesApi.getSavedMovies(token)
+        return response.data
+    }
 })
 
-export const deleteMovie = createAsyncThunk<any, any>('movies/deleteMovie', async(data) => {
-    const {movieId, token} = data
-    const response = await moviesApi.deleteMovie(movieId, token)
-    return response.data
+export const deleteMovie = createAsyncThunk<any, any>('movies/deleteMovie', async (movieId) => {
+    const token = localStorage.getItem('token')
+    if (token) {
+        const response = await moviesApi.deleteMovie(movieId, token)
+        return response.data
+    }
 })
 
 export const moviesSlice = createSlice({
     name: 'movies',
     initialState,
     reducers: {
-        searchMovies: (state, action:PayloadAction<string>) => {
-            state.searchedMovies = state.movies.filter(s => s.nameRU.toLowerCase().includes(action.payload.toLowerCase()))
+        searchMovies: (state, action: PayloadAction<string>) => {
+            if (!state.shortMoviesFilter) {
+                state.searchedMovies = state.movies.filter(s => s.nameRU.toLowerCase().includes(action.payload.toLowerCase()))
+            } else {
+                state.searchedMovies = state.movies.filter(s => s.nameRU.toLowerCase().includes(action.payload.toLowerCase())).filter(s => s.duration < 40)
+            }
         },
         setMoviesToShow: (state, action) => {
             state.moviesToShow = state.searchedMovies.slice(0, action.payload)
         },
         loadMoreMovies: (state, action) => {
             state.moviesToShow = state.searchedMovies.slice(0, state.moviesToShow.length + action.payload)
+        },
+        turnShortMoviesFilterOn: (state) => {
+            state.shortMoviesFilter = true
+            if (state.searchedMovies.length !== 0) {
+                state.searchedMovies = state.searchedMovies.filter(s => s.duration < 40)
+            }
+        },
+        turnShortMoviesFilterOff: (state, action) => {
+            state.shortMoviesFilter = false
+            if (state.movies) {
+                state.searchedMovies = state.movies.filter(s => s.nameRU.toLowerCase().includes(action.payload.toLowerCase()))
+            }
         }
     },
     extraReducers: builder => {
@@ -141,17 +166,28 @@ export const moviesSlice = createSlice({
         builder.addCase(getMovies.fulfilled, (state, action) => {
             state.movies = action.payload
             state.status = 'fulfilled'
+            console.log('api call')
         })
         builder.addCase(getSavedMovies.fulfilled, (state, action) => {
             state.savedMovies = action.payload
             state.status = 'fulfilled'
         })
+        builder.addCase(saveMovie.fulfilled, (state, action) => {
+            state.savedMovies = [...state.savedMovies, action.payload]
+            console.log(state.savedMovies, action.payload)
+        })
         builder.addCase(deleteMovie.fulfilled, (state, action) => {
-            console.log(action.payload, 'fulfilled')
+            state.savedMovies = state.savedMovies.filter(movie => movie.movieId != action.payload.movieId)
         })
     }
 })
 
-export const {searchMovies, setMoviesToShow, loadMoreMovies} = moviesSlice.actions
+export const {
+    searchMovies,
+    setMoviesToShow,
+    loadMoreMovies,
+    turnShortMoviesFilterOff,
+    turnShortMoviesFilterOn
+} = moviesSlice.actions
 
 export default moviesSlice.reducer

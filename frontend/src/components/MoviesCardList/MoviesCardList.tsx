@@ -3,8 +3,9 @@ import s from './MoviesCardList.module.scss';
 import MoviesCard from "../MoviesCard/MoviesCard";
 import {useAppDispatch, useAppSelector} from "../../redux/store";
 import Preloader from "../Preloader/Preloader";
-import {deleteMovie, getSavedMovies, loadMoreMovies, Movie, saveMovie} from "../../redux/moviesSlice";
+import {getSavedMovies, loadMoreMovies, Movie, SavedMovie} from "../../redux/moviesSlice";
 import {useLocation} from "react-router-dom";
+import savedMovies from "../../layout/SavedMovies";
 
 type TMoviesCardList = {
     windowWidth: number
@@ -16,6 +17,7 @@ const MoviesCardList: React.FC<TMoviesCardList> = ({windowWidth}) => {
     const [moviesToLoad, setMoviesToLoad] = useState<number>(0)
     const status = useAppSelector((state) => state.moviesSlice.status)
     const {moviesToShow, searchedMovies, movies, savedMovies} = useAppSelector((state) => state.moviesSlice)
+    const [moviesToRender, setMoviesToRender] = useState<Movie[] | SavedMovie[]>([])
 
     useEffect(() => {
         if (windowWidth > 1200) {
@@ -27,21 +29,24 @@ const MoviesCardList: React.FC<TMoviesCardList> = ({windowWidth}) => {
         }
     }, [windowWidth])
 
-    const showButton = () => {
-        return moviesToShow.length !== searchedMovies.length;
-    }
+    useEffect(() => {
+        if (location.pathname === '/movies') {
+            setMoviesToRender(moviesToShow)
+        }
+    }, [location.pathname, moviesToShow.length])
 
     useEffect(() => {
-        const token = localStorage.getItem('token')
-        dispatch(getSavedMovies(token))
-        console.log(savedMovies)
+        if (location.pathname === '/saved-movies') {
+            getSavedMoviesHandler()
+        }
     }, [savedMovies.length])
 
-    const deleteMovieHandler = async (movieId: any) => {
-        const token = localStorage.getItem('token')
-        await dispatch(deleteMovie({movieId, token}))
-        dispatch(getSavedMovies(token))
+    const getSavedMoviesHandler = async () => {
+        await dispatch(getSavedMovies())
+        setMoviesToRender(savedMovies)
     }
+
+    const showButton = moviesToShow.length !== searchedMovies.length;
 
     return (
         <div className={s.moviesCardList}>
@@ -49,17 +54,15 @@ const MoviesCardList: React.FC<TMoviesCardList> = ({windowWidth}) => {
                 searchedMovies.length === 0 && movies.length > 0 ?
                     <p className={s.moviesCardList__notFound}>Ничего не найдено</p> :
                     <div className={s.moviesCardList__grid}>
-                        {location.pathname === '/movies' ?
-                            moviesToShow.map((movie) => <MoviesCard
+                        {
+                            moviesToRender.map((movie) => <MoviesCard
                                 key={movie.id}
                                 movie={movie}
-                                deleteMovie={deleteMovieHandler}
-                            />) :
-                            savedMovies.map((movie) => <MoviesCard movie={movie} deleteMovie={deleteMovieHandler} key={movie.id} />)
+                            />)
                         }
                     </div>}
-            {showButton() && <button onClick={() => dispatch(loadMoreMovies(moviesToLoad))}
-                    className={s.moviesCardList__moreButton}>Ещё
+            {showButton && <button onClick={() => dispatch(loadMoreMovies(moviesToLoad))}
+                                   className={s.moviesCardList__moreButton}>Ещё
             </button>}
         </div>
     );
