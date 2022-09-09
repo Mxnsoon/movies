@@ -1,7 +1,7 @@
 import axios from "axios";
 import {Movie} from "../redux/moviesSlice";
 
-const myApi = 'http://localhost:5000/api/'
+const myApi = 'https://movies-backend.onrender.com/api/'
 
 export const moviesApi = {
     getMovies() {
