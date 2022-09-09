@@ -4,7 +4,7 @@ import logo from '../../images/logo.png';
 import {SubmitHandler, useForm} from "react-hook-form";
 import {yupResolver} from "@hookform/resolvers/yup";
 import {registerSchema} from "../../vendor/validation";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 import {useAppDispatch} from "../../redux/store";
 import {signUp} from "../../redux/authSlice";
 
@@ -16,9 +16,15 @@ type Inputs = {
 
 const Register = () => {
     const dispatch = useAppDispatch()
+    const navigate = useNavigate();
 
-    const submitHandler = (data: Inputs) => {
-        dispatch(signUp(data))
+    const submitHandler = async (data: Inputs) => {
+        try {
+            await dispatch(signUp(data))
+            navigate("/signin")
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     const { register, handleSubmit, watch, formState: { errors, isSubmitting } } = useForm<Inputs>({

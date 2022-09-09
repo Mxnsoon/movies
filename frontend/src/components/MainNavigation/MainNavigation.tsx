@@ -7,12 +7,11 @@ const MainNavigation = () => {
             <h1 className={s.mainNavigation__title}>Учебный проект студента факультета Веб-разработки.</h1>
             <nav>
                 <ul className={s.mainNavigation__container}>
-                    <li><a className={s.mainNavigation__link} href="#">О проекте</a></li>
-                    <li><a className={s.mainNavigation__link} href="#">Технологии</a></li>
-                    <li><a className={s.mainNavigation__link} href="#">Студент</a></li>
+                    <li><a className={s.mainNavigation__link} href="#aboutProject">О проекте</a></li>
+                    <li><a className={s.mainNavigation__link} href="#techs">Технологии</a></li>
+                    <li><a className={s.mainNavigation__link} href="#aboutMe">Студент</a></li>
                 </ul>
             </nav>
-
         </div>
     );
 };

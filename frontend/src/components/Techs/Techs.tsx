@@ -3,7 +3,7 @@ import s from './Techs.module.scss';
 
 const Techs = () => {
     return (
-        <div className={s.techs}>
+        <div id="techs" className={s.techs}>
             <div className={s.techs__wrapper}>
                 <h2 className={s.techs__title}>Технологии</h2>
                 <hr className={s.techs__line}/>

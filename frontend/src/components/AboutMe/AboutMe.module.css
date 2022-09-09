@@ -43,8 +43,8 @@
   line-height: 22px;
 }
 .aboutMe__photo {
-  width: 270px;
-  height: 327px;
+  width: 300px;
+  height: 300px;
 }
 .aboutMe__linksContainer {
   margin-top: 99px;
@@ -115,8 +115,8 @@
     margin-top: 87px;
   }
   .aboutMe__photo {
-    width: 255px;
-    height: 307px;
+    width: 250px;
+    height: 250px;
   }
   .aboutMe__myAppsLine {
     background-color: #E6E6E6;
@@ -145,8 +145,8 @@
     margin-bottom: 70px;
   }
   .aboutMe__photo {
-    width: 292px;
-    height: 352px;
+    width: 250px;
+    height: 250px;
     align-self: center;
   }
   .aboutMe__name {
